@@ -1,5 +1,6 @@
 
-<<<<<<< HEAD
+
+
 def apdEstadoFinal(Transiciones,Inicial,Final,palabra):
     s = []
     s.append('R')
@@ -10,18 +11,17 @@ def apdEstadoFinal(Transiciones,Inicial,Final,palabra):
                 estado[0]=j[1][0]
                 
 def agregarAlStack(s,R):
-    if len(R)==1:
-        if R==s[-1]:
-            return s
-        else:
-            s.pop()
-            return s
+    if (len(R) == 1): return s #No agrega nada porque se mantiene intacto el stack
     else:
-        ActualStack=s[-1]
-        for i in R:
-            if i==ActualStack:
-                
-            s.append(i)
+        for i in range(len(R) -1): #Si el largo de la palabra es mayor a 1, se agregan letras al stack, menos la ultima
+            s.append(R[i])
+
+def eliminarDelStack(s, R):
+    if (R == 'E'): #Si lee un epsilon elimina del stack
+        s.pop()
+        return s
+    
+    return s
 
 
 
@@ -55,7 +55,6 @@ if(xd=="1"):
 palabraEntrada=input("Ingrese palabra de entrada:")
 
 print(transi[0][0][0])
-=======
 transi=[]
 
 sigue=True
@@ -74,4 +73,3 @@ abs[1]=abs[1][1:len(abs[1])-1].split(',')
 transi.append(abs)
 print(transi)
 print(type(abs[0]))
->>>>>>> a2156c793eb155dbbe73e5618e39dfb6c2248caf
