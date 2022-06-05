@@ -95,17 +95,14 @@ while (metodo != '1' and metodo != '2'):
     print("Error. Ingrese una opción valida")
     metodo=input("De que forma el APD acepta las palabras?, ingrese '1' si es por estado final o '2' si es por stack vacio:")
 
-cont = '2'
 if (metodo == "1"):
     final=input("ingrese estado final:")
-    while (cont == '2'):
-        palabraEntrada=input("Ingrese palabra de entrada:")
-        apdEstadoFinal(transi,estadoInicial,final,palabraEntrada)
-        cont = input("Desea ingresar otra palabra (1:no, 2:si):") #En realidad se detiene para cualquier cosa que no sea 2 :T
-else:
-    while (cont == '2'):
-        palabraEntrada=input("Ingrese palabra de entrada:")
-        apdStackVacio(transi,estadoInicial,palabraEntrada)
-        cont = input("Desea ingresar otra palabra (1:no, 2:si):")
+
+cont = '2'
+while (cont == 2):
+    palabraEntrada=input("Ingrese palabra de entrada:")
+    if (metodo == "1"): apdEstadoFinal(transi,estadoInicial,final,palabraEntrada) 
+    else: apdStackVacio(transi,estadoInicial,palabraEntrada)
+    cont = input("Desea ingresar otra palabra (1:no, 2:si):") #En realidad se detiene para cualquier cosa que no sea 2 :T
 
 print("Programa Finalizado")
