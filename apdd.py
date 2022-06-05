@@ -99,7 +99,7 @@ if (metodo == "1"):
     final=input("ingrese estado final:")
 
 cont = '2'
-while (cont == 2):
+while (cont == '2'):
     palabraEntrada=input("Ingrese palabra de entrada:")
     if (metodo == "1"): apdEstadoFinal(transi,estadoInicial,final,palabraEntrada) 
     else: apdStackVacio(transi,estadoInicial,palabraEntrada)
