@@ -10,7 +10,7 @@ def agregarAlStack(s,R):
 
 def eliminarDelStack(s):
     s.pop()
-    return s
+    return s 
 
 def apdEstadoFinal(Transiciones,Inicial,Final,palabra):
     s = ['R']
@@ -71,9 +71,12 @@ def procesaEntrada(entrada):
     return abs
 
 transi=[]
-forma=input("En que forma quiere que se lean sus transiciones(1:Leer desde txt; 2:Ingresar manualmente):")
 print("RECUERDE:ingresar las transiciones de la forma (q0,a,R)=(q1,A), donde 'q0' y'q1' son los estados,'a'",
-     " la palabra y 'R' y 'A' elementos del stack,coinsidere que 'E' es la palabra vacia")
+     " la palabra y 'R' y 'A' elementos del stack,coinsidere que 'E' es la palabra vacia\n")
+
+forma=input("En que forma quiere que se lean sus transiciones \n 1:Leer desde txt (Primero debe editar el archivo 'transiciones.txt' ubicado en la carpeta del programa) \n 2:Ingresar manualmente \n Ingrese opcion:")
+
+print()
 
 if (forma == "2"):
     print("Para dejar de ingresar transiciones se debe ingresar ''")
@@ -82,13 +85,15 @@ if (forma == "2"):
         transi.append(procesaEntrada(tran))
         tran=input("Ingrese la transicion:")
 elif(forma=="1"):
-    with open("./transi.txt","r") as archivo:
+    with open("./transiciones.txt","r") as archivo:
         for tran in archivo:
             transi.append(procesaEntrada(tran))
 else:
     sys.exit("Debe igresar una opcion")
 
-estadoInicial=input("ingrese estado inicial:") #Quizá se deberia verificar que el estado inicial existe
+estadoInicial=input("ingrese estado inicial:") 
+while (estadoInicial == "" or estadoInicial[0] != 'q'): #Valida que se ingrese un estado inicial de la forma correspondiente
+    estadoInicial=input("Por favor ingrese un estado inicial valido (ej: 'q0'):")
 
 metodo=input("De que forma el APD acepta las palabras?, ingrese '1' si es por estado final o '2' si es por stack vacio:")
 while (metodo != '1' and metodo != '2'):
@@ -97,6 +102,8 @@ while (metodo != '1' and metodo != '2'):
 
 if (metodo == "1"):
     final=input("ingrese estado final:")
+    while (final == "" or final[0] != 'q'): #Valida que se ingrese un estado final de la forma correspondiente
+        final=input("Por favor ingrese un estado final valido (ej: qf):")
 
 cont = '2'
 while (cont == '2'):
