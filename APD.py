@@ -114,7 +114,10 @@ def main():
         palabraEntrada=input("Ingrese palabra de entrada:")
         if (metodo == "1"): apdEstadoFinal(transiciones,estadoInicial,final,palabraEntrada) 
         else: apdStackVacio(transiciones,estadoInicial,palabraEntrada)
-        cont = input("Desea ingresar otra palabra (1:no, 2:si):") #En realidad se detiene para cualquier cosa que no sea 2 :T
+        cont = input("Desea ingresar otra palabra? (1:no, 2:si):")
+        while (cont != '1' and cont != '2'):
+            print("Error. Ingrese una opción valida")
+            cont = input("Desea ingresar otra palabra? (1:no, 2:si):")
 
     print("Programa Finalizado")
 
