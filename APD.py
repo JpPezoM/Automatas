@@ -15,16 +15,16 @@ def eliminarDelStack(s):
 
 def apdEstadoFinal(Transiciones,Inicial,Final,palabra):
     s = ['R']
-    estado = [Inicial, palabra, s]
+    Di = [Inicial, palabra, s]
     QuedaPalabra = True
     while(QuedaPalabra):
-        if(estado[1]==""):
-            estado[1]="E"
+        if(Di[1]==""):
+            Di[1]="E"
             QuedaPalabra=False
         for j in Transiciones:
-            if estado[0]==j[0][0] and estado[1][0]==j[0][1] and estado[2][-1]==j[0][2]:
-                estado[0]=j[1][0]
-                estado[1]=estado[1][1:]
+            if Di[0]==j[0][0] and Di[1][0]==j[0][1] and Di[2][-1]==j[0][2]:
+                Di[0]=j[1][0]
+                Di[1]=Di[1][1:]
                 if(j[1][1]!='E'):
                     s=agregarAlStack(s,j[1][1])
                 else:
@@ -33,23 +33,23 @@ def apdEstadoFinal(Transiciones,Inicial,Final,palabra):
             elif(j==Transiciones[len(Transiciones)-1]):
                 print("La palabra no es aceptada")
                 return
-    if(estado[0]==Final):
+    if(Di[0]==Final):
         print("La palabra es aceptada")
         return
     print("No se acepta la palabra")    
     
 def apdStackVacio(Transiciones,Inicial,palabra):
     s = ['R']
-    estado = [Inicial, palabra, s]
+    Di = [Inicial, palabra, s]
     QuedaPalabra = True
     while(QuedaPalabra):
-        if(estado[1]==""):
-            estado[1]="E"
+        if(Di[1]==""):
+            Di[1]="E"
             QuedaPalabra=False
         for j in Transiciones:
-            if estado[0]==j[0][0] and estado[1][0]==j[0][1] and estado[2][-1]==j[0][2]:
-                estado[0]=j[1][0]
-                estado[1]=estado[1][1:]
+            if Di[0]==j[0][0] and Di[1][0]==j[0][1] and Di[2][-1]==j[0][2]:
+                Di[0]=j[1][0]
+                Di[1]=Di[1][1:]
                 if(j[1][1]!='E'):
                     s=agregarAlStack(s,j[1][1])
                 else:
