@@ -74,7 +74,7 @@ def procesaEntrada(entrada):
 def main():
     transiciones=[]
     print("RECUERDE:ingresar las transiciones de la forma (q0,a,R)=(q1,A), donde 'q0' y'q1' son los estados,'a'",
-        " la palabra y 'R' y 'A' elementos del stack,coinsidere que 'E' es la palabra vacia\n")
+        " la palabra y 'R' y 'A' elementos del stack,coinsidere que 'E' es la palabra vacia y que el stack comienza con una 'R'\n")
 
     forma=input("En que forma quiere que se lean sus transiciones \n 1:Leer desde txt (Primero debe editar el archivo 'transiciones.txt' ubicado en la carpeta del programa) \n 2:Ingresar manualmente \n Ingrese opcion:")
 
@@ -114,7 +114,7 @@ def main():
         palabraEntrada=input("Ingrese palabra de entrada:")
         if (metodo == "1"): apdEstadoFinal(transiciones,estadoInicial,final,palabraEntrada) 
         else: apdStackVacio(transiciones,estadoInicial,palabraEntrada)
-        cont = input("Desea ingresar otra palabra (1:no, 2:si):") #En realidad se detiene para cualquier cosa que no sea 2 :T
+        cont = input("Desea ingresar otra palabra (1:no, 2:si):") 
 
     print("Programa Finalizado")
 
